@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 1</title>
+</head>
+<style>
+    html {
+    box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+body {
+    font-family: sans-serif;
+    padding: 1rem;
+    background-color:grey;
+}
+.quiz,
+.choices {
+    list-style-type: none;
+    padding: 0;
+}
+.choices li {
+    margin-bottom: 5px;
+}
+.choices label {
+    display: flex;
+    align-items: center;
+}
+.choices label,
+input[type="radio"] {
+    cursor: pointer;
+}
+input[type="radio"] {
+    margin-right: 8px;
+}
+.view-results {
+    padding: 1rem;
+    cursor: pointer;
+    font-size: inherit;
+    color: white;
+    background: teal;
+    border-radius: 8px;
+    margin-right: 5px;
+}
+.my-results {
+    padding: 1rem;
+    border: 1px solid rgb(211, 207, 199);
+}
+.sem{
+    color:black;
+    padding-left: 30%;
+}
+.al{
+    color: whitesmoke;
+    padding-left: 2rem;
+}
+</style>
+<body>
+    <script>
+        var answers = ["A", "C", "B", "D", "C"],
+    tot = answers.length;
+function getCheckedValue(radioName) {
+    var radios = document.getElementsByName(radioName);
+    for (var i = 0; i < radios.length; i++)
+        if (radios[i].checked)
+          return radios[i].value;
+}
+function getScore() {
+    var score = 0;
+    for (var i = 0; i < tot; i++)
+        if (getCheckedValue("question" + i) === answers[i]) 
+        score += 1;
+
+    return score;
+}
+function returnScore() {
+    document.getElementById("myresults").innerHTML =
+        "Your score is " + getScore() + "/" + tot;
+}
+function reset(){
+    location.reload();
+}
+
+    </script>
+    <div class="sem">
+    <ul class="quiz">
+        <li>
+            <h4>1. What is JavaScript?</h4>
+            <div class="al">
+            <ul class="choices">
+                <li>
+                    <label><input type="radio" name="question0" value="A" />
+                        <span>JavaScript is a scripting language used to make the website interactive</span></label>
+                </li>
+                <li>
+                    <label><input type="radio" name="question0" value="B" />
+                        <span>JavaScript is an assembly language used to make the website interactive</span></label>
+                </li>
+                <li>
+                    <label><input type="radio" name="question0" value="C" />
+                        <span>JavaScript is a compiled language used to make the website interactive</span></label>
+                </li>
+                <li>
+                    <label><input type="radio" name="question0" value="D" />
+                        <span>None of the mentioned</span></label>
+                </li>
+            </ul>
+        </div>
+        </li>
+        <li>
+            <h4>2. Which of the following is correct about JavaScript?</h4>
+            <div class="al">
+            <ul class="choices">
+                <li>
+                    <label><input type="radio" name="question1" value="A" />
+                        <span>JavaScript is an Object-Based language</span></label>
+                </li>
+                <li>
+                    <label><input type="radio" name="question1" value="B" />
+                        <span>JavaScript is Assembly-language</span></label>
+                </li>
+                <li>
+                    <label><input type="radio" name="question1" value="C" />
+                        <span>JavaScript is an Object-Oriented language</span></label>
+                </li>
+                <li>
+                    <label><input type="radio" name="question1" value="D" />
+                        <span>JavaScript is a High-level language</span></label>
+                </li>
+            </ul>
+        </div>
+        </li>
+        <li>
+            <h4>3. Among the given statements, which statement defines closures in JavaScript?</h4>
+            <div class="al">
+            <ul class="choices">
+                <li>
+                    <label><input type="radio" name="question2" value="A" />
+                        <span>JavaScript is a function that is enclosed with references to its inner function scope</span></label>
+                </li>
+                <li>
+                    <label><input type="radio" name="question2" value="B" />
+                        <span>JavaScript is a function that is enclosed with references to its lexical environment</span></label>
+                </li>
+                <li>
+                    <label><input type="radio" name="question2" value="C" />
+                        <span>JavaScript is a function that is enclosed with the object to its inner function scope</span></label>
+                </li>
+                <li>
+                    <label><input type="radio" name="question2" value="D" />
+                        <span>None of the mentioned</span></label>
+                </li>
+            </ul>
+        </div>
+        </li>
+    </ul>
+    <h4>4. What does HTML stand for?</h4>
+    <div class="al">
+            <ul class="choices">
+                <li>
+                    <label><input type="radio" name="question3" value="A" />
+                        <span>Home Tool Markup Language</span></label>
+                </li>
+                <li>
+                    <label><input type="radio" name="question3" value="B" />
+                        <span> HyperLinks and Text Markup Language</span></label>
+                </li>
+                <li>
+                    <label><input type="radio" name="question3" value="C" />
+                        <span>Hyper Tool Media Language</span></label>
+                </li>
+                <li>
+                    <label><input type="radio" name="question3" value="D" />
+                        <span>Hyper Text Markup Language</span></label>
+                </li>
+            </ul>
+        </div>
+        </li>
+    </ul>
+    <h4>5. "< br >" What type of tag is this?</h4>
+    <div class="al">
+            <ul class="choices">
+                <li>
+                    <label><input type="radio" name="question4" value="A" />
+                        <span>Broken Tag</span></label>
+                </li>
+                <li>
+                    <label><input type="radio" name="question4" value="B" />
+                        <span>Opening Tag</span></label>
+                </li>
+                <li>
+                    <label><input type="radio" name="question4" value="C" />
+                        <span>Break Tag</span></label>
+                </li>
+                <li>
+                    <label><input type="radio" name="question4" value="D" />
+                        <span>None of the mentioned</span></label>
+                </li>
+            </ul>
+            </div>
+        </li>
+    </ul>
+</div>
+<center>
+    <button class="view-results" onclick="returnScore()">View Results</button>
+    <span id="myresults" class="my-results">My results will appear here</span>
+    <button class="view-results" onclick="reset()">Reset</button>
+</center>
+
+</body>
+</html>
